@@ -18,12 +18,59 @@
                 <button id="shiny-button" class="rare-button button" type="button">Shiny</button>
             </div>
             <div class="search-container">
-                <input class="button" id="inputPokemon" type="text">
-                <button id="buttonSearch" class="button-search button" class="button"><img class="search-icon" src="./src/img/search-outline.svg" alt="Search icon"></button>
+                <input class="button" id="inputPokemon" type="text" placeholder="Pokemon...">
+                <button id="buttonSearch" class="button-search button" class="button">
+                    <img class="search-icon" src="./src/img/search-outline.svg" alt="Search icon">
+                </button>
             </div>
             <div class="backnext-container">
                 <button id="back-button" class="backnext-button button" type="button">&lt; Anterior</button>
                 <button id="next-button" class="backnext-button button" type="button">Siguiente &gt;</button>
+            </div>
+            <div class="name-container">
+                <div class="name-pokemon">
+                    <h1 id="data-name">...</h1>
+                </div>
+            </div>
+            <div class="info-container">
+                <div class="stats-pokemon">
+                    <div class="stats-left">
+                        <div class="stat">
+                            <h3>Id: </h3>
+                            <p id="data-id">...</p>
+                        </div>
+                        <div class="stat">
+                            <h3>Rapidez: </h3>
+                            <p id="data-speed">...</p>
+                        </div>
+                        <div class="stat">
+                            <h3>Ataque: </h3>
+                            <p id="data-attack">...</p>
+                        </div>
+                        <div class="stat">
+                            <h3>Defensa: </h3>
+                            <p id="data-defense">...</p>
+                        </div>
+                    </div>
+                    <div class="stats-right">
+                        <div class="stat">
+                            <h3>Orden: </h3>
+                            <p id="data-number">...</p>
+                        </div>
+                        <div class="stat">
+                            <h3>Vida: </h3>
+                            <p id="data-hp">...</p>
+                        </div>
+                        <div class="stat">
+                            <h3>Atq. esp.: </h3>
+                            <p id="data-attack-special">...</p>
+                        </div>
+                        <div class="stat">
+                            <h3>Def. esp: </h3>
+                            <p id="data-defense-special">...</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </main>
