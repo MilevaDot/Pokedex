@@ -111,7 +111,7 @@ main {
 
 .backnext-container {
     position: absolute;
-    margin-top: 520px;
+    margin-top: 540px;
     margin-left: 60px;
     display: flex;
     gap: 45px;
@@ -151,11 +151,11 @@ main {
 .info-container {
     position: absolute;
     border-radius: 12px;
-    box-shadow: -4px 4px 0px #727272;
-    border: 3px solid black;
+    /* box-shadow: -4px 4px 0px #727272; */
+    /* border: 3px solid black; */
     margin-top: 220px;
-    margin-left: 500px;
-    background-color: #E3E3E3;
+    margin-left: 490px;
+    /* background-color: #E3E3E3; */
     width: 310px;
     height: 200px;
     padding: 0px 12px;
@@ -182,4 +182,44 @@ main {
     display: flex;
     justify-content: space-between;
     gap: 10px;
+}
+.stat h3 {
+    color: #E3E3E3;
+    letter-spacing: 1.2px;
+    text-shadow: -1.5px 1px 0px black;
+}
+
+.stat-item {
+    box-shadow: -2px 2px 0px #727272;
+    background-color: black;
+    border-radius: 4px;
+    color: #E3E3E3;
+    width: 40px;
+    text-align: center;
+}
+
+.stats-left,
+.stats-right {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+#selectPokemon {
+    position: absolute;
+    margin-top: 40px;
+    width: 210px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: -4px 4px 0px #727272;
+    border: 2px solid black;
+}
+
+#selectPokemon option {
+    cursor: pointer;
+    padding: 0px 10px;
+}
+
+#selectPokemon option:hover {
+    background-color: hsla(0, 84%, 75%, 0.5);
 }
