@@ -223,3 +223,17 @@ main {
 #selectPokemon option:hover {
     background-color: hsla(0, 84%, 75%, 0.5);
 }
+
+.clear {
+    position: absolute;
+    margin-top: 540px;
+    margin-left: 730px;
+}
+
+.clear button {
+    padding: 4px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    height: 40px;
+    transition: transform 0.1s ease-in-out;
+}

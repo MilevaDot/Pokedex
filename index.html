@@ -5,8 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokedex</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="./src/img/pokedex-icon.png" type="image/png">
 </head>
 <body>
+    <audio id="background-audio" src="./src/audio/pokemon-song.mp3" loop></audio>
+    <audio id="select-audio" src="./src/audio/select-pokemon.mp3"></audio>
+    <audio id="rare-audio" src="./src/audio/pick-pokemon.mp3"></audio>
+    <audio id="clear-audio" src="./src/audio/clean-song.mp3"></audio>
     <main>
         <div class="pokedex-background">
             <img src="./src/img/pokedex.png" alt="">
@@ -72,6 +77,9 @@
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="clear">
+                <button class="button" id="clear-button" type="button">Limpiar</button>
             </div>
         </div>
     </main>

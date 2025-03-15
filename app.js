@@ -5,6 +5,7 @@ const normalButton = document.getElementById('normal-button')
 const shinyButton = document.getElementById('shiny-button')
 const backButton = document.getElementById('back-button')
 const nextButton = document.getElementById('next-button')
+const clearButton = document.getElementById('clear-button')
 
 const dataName = document.getElementById('data-name')
 const dataNumber = document.getElementById('data-number')
@@ -18,6 +19,10 @@ const dataAttackSpecial = document.getElementById('data-attack-special')
 const dataDefenseSpecial = document.getElementById('data-defense-special')
 
 const selectPokemon = document.getElementById('selectPokemon')
+
+const selectAudio = document.getElementById('select-audio')
+const rareAudio = document.getElementById('rare-audio')
+const clearAudio = document.getElementById('clear-audio')
 
 let index = 0
 let listPokemon = []
@@ -35,17 +40,16 @@ document.addEventListener('click', function (event)  {
 
 const fillPokemonList = async () => {
     try {
-        const response = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=10000`)
+        const response = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=1400`)
         const data = await response.json()
-            listPokemon = data.results.map( pokemon =>
-                pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)
-            )
+        listPokemon = data.results.map( pokemon =>
+            // pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)
+            pokemon.name
+        )
     } catch ( error ) {
         console.error("Error: ", error)
     }
 }
-
-
 
 const searchPokemon = () => {
         const input = inputPokemon.value.trim().toLowerCase()
@@ -98,6 +102,7 @@ const getPokemon = async () => {
         dataSpeed.innerHTML = data.stats[5].base_stat
 
         index = data.id
+        selectAudio.play()
     } catch {
         return
     }
@@ -114,6 +119,7 @@ const shinyPokemon = async () => {
         imagePokemon.src = data.sprites.front_shiny
         shinyButton.style.backgroundColor = 'papayawhip'
         normalButton.style.backgroundColor = 'white'
+        rareAudio.play()
     } catch {
         return
     }
@@ -130,6 +136,7 @@ const normalPokemon = async () => {
         imagePokemon.src = data.sprites.front_default
         normalButton.style.backgroundColor = 'papayawhip'
         shinyButton.style.backgroundColor = 'white'
+        rareAudio.play()
     } catch {
         return
     }
@@ -158,6 +165,7 @@ const getnextPokemon = async () => {
             dataSpeed.innerHTML = data.stats[5].base_stat
 
             inputPokemon.value = data.name.charAt(0).toUpperCase() + data.name.slice(1)
+            rareAudio.play()
         } else {
             index = 0
             return
@@ -190,6 +198,7 @@ const getBackPokemon = async () => {
             dataSpeed.innerHTML = data.stats[5].base_stat
 
             inputPokemon.value = data.name.charAt(0).toUpperCase() + data.name.slice(1)
+            rareAudio.play()
         } else {
             index = 0
             return
@@ -199,6 +208,23 @@ const getBackPokemon = async () => {
     }
 }
 
+const cleanFields = () => {
+    imagePokemon.classList.add('inactive')
+    dataName.innerHTML = '...'
+    dataNumber.innerHTML = ''
+    dataId.innerHTML = ''
+    
+    dataHP.innerHTML = ''
+    dataAttack.innerHTML = ''
+    dataDefense.innerHTML = ''
+    dataAttackSpecial.innerHTML = ''
+    dataDefenseSpecial.innerHTML = ''
+    dataSpeed.innerHTML = ''
+    inputPokemon.value = ''
+
+    clearAudio.play()
+
+}
 
 buttonSearch.addEventListener('click', getPokemon)
 shinyButton.addEventListener('click', shinyPokemon)
@@ -207,11 +233,12 @@ nextButton.addEventListener('click', getnextPokemon)
 backButton.addEventListener('click', getBackPokemon)
 inputPokemon.addEventListener('input', searchPokemon)
 selectPokemon.addEventListener('change', selectOptionPokemon)
+clearButton.addEventListener('click', cleanFields)
 
-// pressButton(inputPokemon)
 pressButton(buttonSearch)
 pressButton(normalButton)
 pressButton(shinyButton)
 pressButton(backButton)
 pressButton(nextButton)
+pressButton(clearButton)
 fillPokemonList()
